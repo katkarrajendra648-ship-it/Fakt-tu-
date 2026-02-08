@@ -220,19 +220,19 @@ love you babydoll mazhi 💗🫂😘🌎
   <!-- PHOTO GALLERY -->
   <div class="gallery">
     <div class="photo">
-      <img src="mine1.jpg">
+      <img src="mine1">
       <p>ur mine 💖</p>
     </div>
     <div class="photo">
-      <img src="mine2.jpg">
+      <img src="mine2">
       <p>ur mine 💖</p>
     </div>
     <div class="photo">
-      <img src="mine3.jpg">
+      <img src="mine3">
       <p>ur mine 💖</p>
     </div>
     <div class="photo last">
-      <img src="mine4.jpg">
+      <img src="mine4">
       <p class="last-text">
         ur mine 💖<br>
         i love you so much<br>

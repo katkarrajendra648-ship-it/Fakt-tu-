@@ -247,7 +247,7 @@ love you babydoll mazhi 💗🫂😘🌎
   <div class="modal-content">
     <div class="close" id="close">✖</div>
     <h2>You’re Mine 💖</h2>
-    <img src="mine1.jpg">
+    <img src="mine1.jpg"> <!-- ONLY mine1.jpg -->
   </div>
 </div>
 

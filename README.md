@@ -124,6 +124,125 @@ button{
   cursor:pointer;
   font-weight:bold;
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Anjali 💖</title>
+
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(270deg,#ff6a88,#ff99ac,#fad0c4);
+  background-size:600% 600%;
+  animation:bgMove 14s ease infinite;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow-x:hidden;
+  font-family:'Segoe UI',sans-serif;
+}
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.card{
+  max-width:900px;
+  background:rgba(255,255,255,.22);
+  backdrop-filter:blur(16px);
+  padding:30px;
+  border-radius:30px;
+  color:#fff;
+  text-align:center;
+  box-shadow:0 0 50px rgba(255,0,120,.6);
+  animation:pop 1.8s ease;
+}
+@keyframes pop{
+  from{opacity:0;transform:scale(.6)}
+  to{opacity:1;transform:scale(1)}
+}
+
+h1{
+  font-size:36px;
+  animation:heartbeat 1.4s infinite;
+}
+@keyframes heartbeat{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.15)}
+  100%{transform:scale(1)}
+}
+
+p{
+  font-size:18px;
+  line-height:1.9;
+}
+
+.signature{
+  margin-top:20px;
+  font-size:22px;
+  animation:glow 2s infinite alternate;
+}
+
+.buttons{margin-top:25px}
+button{
+  border:none;
+  padding:12px 25px;
+  font-size:18px;
+  border-radius:30px;
+  cursor:pointer;
+  transition:.3s;
+}
+#yes{
+  background:#ff2f6e;
+  color:#fff;
+  font-size:22px;
+}
+#no{
+  background:#fff;
+  color:#ff2f6e;
+  margin-left:15px;
+}
+
+/* POPUP */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+}
+.modal-content{
+  position:relative;
+  background:linear-gradient(135deg,#ff6a88,#ff99ac);
+  padding:30px;
+  border-radius:25px;
+  text-align:center;
+  color:#fff;
+  animation:pop 1s ease;
+  box-shadow:0 0 40px hotpink;
+}
+.modal-content h2{
+  font-size:36px;
+  margin-bottom:15px;
+}
+.modal-content img{
+  width:240px;
+  border-radius:20px;
+  box-shadow:0 0 20px #fff;
+}
+.close{
+  position:absolute;
+  top:10px;
+  right:14px;
+  font-size:26px;
+  cursor:pointer;
+  font-weight:bold;
+}
 
 /* FLOATING HEARTS */
 .heart{
@@ -135,41 +254,6 @@ button{
 @keyframes floatUp{
   from{transform:translateY(0);opacity:1}
   to{transform:translateY(-120vh);opacity:0}
-}
-
-/* PHOTO GALLERY */
-.gallery{
-  margin-top:30px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;
-}
-.photo{
-  text-align:center;
-  animation:fadeUp 1.5s ease forwards;
-}
-.photo img{
-  width:100%;
-  border-radius:20px;
-  box-shadow:0 0 25px rgba(255,0,120,.6);
-  transition:.4s;
-}
-.photo img:hover{
-  transform:scale(1.08);
-}
-.photo p{
-  margin-top:8px;
-  font-size:18px;
-  font-weight:bold;
-  animation:glow 2s infinite alternate;
-}
-.last-text{
-  font-size:20px;
-  line-height:1.6;
-}
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px)}
-  to{opacity:1;transform:translateY(0)}
 }
 </style>
 </head>
@@ -216,30 +300,6 @@ love you babydoll mazhi 💗🫂😘🌎
     <button id="yes">YES 💖</button>
     <button id="no">NO 🙈</button>
   </div>
-
-  <!-- PHOTO GALLERY -->
-  <div class="gallery">
-    <div class="photo">
-      <img src="mine1">
-      <p>ur mine 💖</p>
-    </div>
-    <div class="photo">
-      <img src="mine2">
-      <p>ur mine 💖</p>
-    </div>
-    <div class="photo">
-      <img src="mine3">
-      <p>ur mine 💖</p>
-    </div>
-    <div class="photo last">
-      <img src="mine4">
-      <p class="last-text">
-        ur mine 💖<br>
-        i love you so much<br>
-        much more and ever 🌍💋
-      </p>
-    </div>
-  </div>
 </div>
 
 <!-- POPUP -->
@@ -247,7 +307,7 @@ love you babydoll mazhi 💗🫂😘🌎
   <div class="modal-content">
     <div class="close" id="close">✖</div>
     <h2>You’re Mine 💖</h2>
-    <img src="mine1.jpg"> <!-- ONLY mine1.jpg -->
+    <img src="mine1"> <!-- ONLY mine1.jpg -->
   </div>
 </div>
 
@@ -267,6 +327,53 @@ setInterval(()=>{
 },300);
 
 // buttons + music
+const yes=document.getElementById("yes");
+const no=document.getElementById("no");
+const popup=document.getElementById("popup");
+const closeBtn=document.getElementById("close");
+const music=document.getElementById("bgMusic");
+
+let size=22;
+
+no.onclick=()=>{
+  size+=10;
+  yes.style.fontSize=size+"px";
+  yes.style.padding="15px "+(size*2)+"px";
+};
+
+yes.onclick=()=>{
+  popup.style.display="flex";
+  music.currentTime=0;
+  music.volume=0.9;
+  music.play();
+
+  if(navigator.vibrate){
+    navigator.vibrate([200,100,200]);
+  }
+};
+
+closeBtn.onclick=()=>{
+  popup.style.display="none";
+  music.pause();
+};
+
+popup.onclick=(e)=>{
+  if(e.target===popup){
+    popup.style.display="none";
+    music.pause();
+  }
+};
+</script>
+
+</body>
+</html>
+/* FLOATING HEARTS */
+.heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:22px;
+  animation:floatUp linear forwards;
+buttons + music
 const yes=document.getElementById("yes");
 const no=document.getElementById("no");
 const popup=document.getElementById("popup");

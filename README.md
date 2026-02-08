@@ -204,9 +204,17 @@ much more and ever 🌍💋🫂🧿
 </div>
 
 <script>
-const text=`Hlo mazhi kaju katli 💋 mla nahi mahiti ki mi tujhya sang yevadha attract kaskay zalo. But tula sangatoy mahiti nahi mla ki ks kay but mla tujhyavar prem zalay te pn khup jast aani mla mahitiy tujhya baddal sagal kahi tari pn mla tujhyavarach prem zalay. Tula mahity ka mi sagalyana sangitalay ki mi tujhyavar prem karato aani mla tuch havi tujhyavar sarkhi pn nako. Aani tu thambshil rahashil mla sodun jashil mla kahi ghen den nahi but I know ki tu pahije. I love you love you love you so much much more and ever 🌍💗😘 fakt tuch.khup prem zalay tujhyavar tuch aani tuch pahije majhya black and white zindagi madhi colourfull person tu 🧿
-Mazhi special one mazhi kaju katli 💋 mazhi aaichyaa hatachi puranpoli 💕😘🌎 love you babydoll mazhi 💗🫂😘🌎
-Say s or no 🥺🤞`;
+const text=Hlo mazhi kaju katli 💋 mla nahi mahiti ki mi tujhya sang yevadha attract kaskay zalo. But tula sangatoy mahiti nahi mla ki ks kay but mla tujhyavar prem zalay te pn khup jast aani mla mahitiy tujhya baddal sagal kahi tari pn mla tujhyavarach prem zalay.  aani mla tuch havi tujhya sarkhi pn nako. Tyavar hot ki 
+.
+.
+
+Ki karu sukhane sansar aapan. Tu premachi pahili payari hoshil ka 💕
+Lihil nanyane swatahala tujhya sobat.tu aayushyachi dairy hoshil ka 🧿
+Aani jevha yeu yekatr aapan.duniya karel kautuk aapl jevha yeu yekatr aapan duniya karel kautuk aapl.🍂🌸 
+Mi hoto shabd tuzhe. Tu mazhi shayari hoshil ka 🫂🤌🤍💋❤️
+.
+. say s or no 🤌🤍
+`;
 
 let i=0;
 function startStory(){

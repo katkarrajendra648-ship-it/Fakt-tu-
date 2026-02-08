@@ -187,19 +187,19 @@ button{
 <div class="close" onclick="closePopup()">✖</div>
 
 <div class="slide">
-<img src="mine1.jpg">
+<img src="mine1">
 <div class="caption">ur mine 💖</div>
 </div>
 <div class="slide">
-<img src="mine2.jpg">
+<img src="mine2">
 <div class="caption">ur my angel 😇</div>
 </div>
 <div class="slide">
-<img src="mine3.jpg">
+<img src="mine3">
 <div class="caption">ur my princess 👑</div>
 </div>
 <div class="slide">
-<img src="mine4.jpg">
+<img src="mine4">
 <div class="caption">
 ur my everything 💞<br>
 Anjali I love you so much<br>

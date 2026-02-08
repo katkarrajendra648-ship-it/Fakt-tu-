@@ -13,7 +13,6 @@ body{
   overflow-x:hidden;
 }
 
-/* Container */
 .container{
   max-width:800px;
   margin:auto;
@@ -28,8 +27,6 @@ body{
 }
 
 /* Typing effect */
-@keyframes blink { 0%,100% {border-color:transparent;} 50% {border-color:#fff;} }
-
 .typing{
   border-right:3px solid #fff;
   white-space:pre-wrap;
@@ -50,20 +47,36 @@ button{
 #yesBtn{background:#fff;color:#ff2d75;}
 #noBtn{background:#ff2d75;color:white;}
 
-/* Popup full-screen */
+/* Magical Popup */
 .popup{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.95);
+  background: radial-gradient(circle at top,#ff5fa2,#8e44ad 90%);
   backdrop-filter:blur(12px);
+  overflow:hidden;
   display:none;
   justify-content:center;
   align-items:center;
   flex-direction:column;
   z-index:9999;
-  transition:0.5s;
 }
 
+/* Stars */
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  opacity:0.8;
+  animation:twinkle linear infinite;
+}
+@keyframes twinkle{
+  0%,100%{opacity:0.2;}
+  50%{opacity:1;}
+}
+
+/* Slide */
 .slide{
   display:none;
   text-align:center;
@@ -73,14 +86,19 @@ button{
   from{opacity:0; transform:scale(0.95);}
   to{opacity:1; transform:scale(1);}
 }
-
 .slide img{
   max-width:80%;
   max-height:70vh;
   border-radius:20px;
-  box-shadow:0 0 60px #ff5fa2;
+  box-shadow:0 0 80px #ff5fa2;
+  transition:0.5s;
+}
+.slide img:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 100px #ff9a9e,0 0 150px #ff2d75;
 }
 
+/* Caption */
 .caption{
   margin-top:15px;
   font-size:22px;
@@ -102,7 +120,7 @@ button{
   cursor:pointer;
 }
 
-/* Hearts */
+/* Floating hearts */
 .heart span{
   position:fixed;
   bottom:-20px;
@@ -186,7 +204,7 @@ ur my everything 💞<br>Anjali i love you so much<br>much more and ever 🌍�
 </div>
 
 <script>
-// Majkur typing effect
+// Typing effect
 const text=`Hlo mazhi kaju katli 💋 mla nahi mahiti ki mi tujhya sang yevadha attract kaskay zalo. But tula sangatoy mahiti nahi mla ki ks kay but mla tujhyavar prem zalay te pn khup jast aani mla mahitiy tujhya baddal sagal kahi tari pn mla tujhyavarach prem zalay. Tula mahity ka mi sagalyana sangitalay ki mi tujhyavar prem karato aani mla tuch havi tujhyavar sarkhi pn nako. Aani tu thambshil rahashil mla sodun jashil mla kahi ghen den nahi but I know ki tu pahije. I love you love you love you so much much more and ever 🌍💗😘 fakt tuch.khup prem zalay tujhyavar tuch aani tuch pahije majhya black and white zindagi madhi colourfull person tu 🧿\nMazhi special one mazhi kaju katli 💋 mazhi aaichyaa hatachi puranpoli 💕😘🌎 love you babydoll mazhi 💗🫂😘🌎\n\nAnjali i love you yar 🥺🤌💕🫂🌎🧿 say yes or no 🤌🤍`;
 let i=0;
 function typing(){ 
@@ -202,6 +220,7 @@ function growYes(){ yesSize+=0.2; document.getElementById("yesBtn").style.transf
 
 function openPopup(){
   document.getElementById("popup").style.display="flex";
+  createStars(80); // magical stars
   slides=document.getElementsByClassName("slide");
   slideIndex=0;
   showSlide();
@@ -259,7 +278,21 @@ function spawnFireworks(){
     setTimeout(()=>f.remove(),1000);
   }
 }
-</script>
 
+// Stars
+function createStars(num){
+  const popup=document.getElementById("popup");
+  for(let i=0;i<num;i++){
+    const s=document.createElement("div");
+    s.className="star";
+    s.style.top=Math.random()*100+"%";
+    s.style.left=Math.random()*100+"%";
+    s.style.width=(Math.random()*2+1)+"px";
+    s.style.height=s.style.width;
+    s.style.animationDuration=(Math.random()*3+2)+"s";
+    popup.appendChild(s);
+  }
+}
+</script>
 </body>
 </html>

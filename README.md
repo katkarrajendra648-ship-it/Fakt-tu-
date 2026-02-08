@@ -152,10 +152,10 @@ Anjali i love you yar 🥺🤌💕🫂🌎🧿 say yes or no 🤌🤍
 <script>
 // SLIDES
 const slides=[
-  {img:"mine1.jpg", text:"ur mine 💖"},
-  {img:"mine2.jpg", text:"ur my angel 😇"},
-  {img:"mine3.jpg", text:"ur my princess 👑"},
-  {img:"mine4.jpg", text:"ur my everything 💞<br>Anjali i love you so much<br>much more and ever 🌍💋🫂🧿"}
+  {img:"mine1", text:"ur mine 💖"},
+  {img:"mine2", text:"ur my angel 😇"},
+  {img:"mine3", text:"ur my princess 👑"},
+  {img:"mine4", text:"ur my everything 💞<br>Anjali i love you so much<br>much more and ever 🌍💋🫂🧿"}
 ];
 let index=0, timer;
 
@@ -210,87 +210,6 @@ function createConfetti(){
     setTimeout(()=>c.remove(),4000);
   }
 }
-</script>
-
-</body>
-</html><p>
-Hlo mazhi kaju katli 💋  
-mla nahi mahiti kasa prem zala pan  
-mla tujhyavar khup khup jast prem zalay 💞  
-
-majhya black & white life madhe  
-colour tu aahe 🧿🌈  
-
-<b>Anjali, I love you yaar 🥺🤌💕🫂🌍</b>
-</p>
-
-<div class="buttons">
-<button id="yes">YES 💖</button>
-<button id="no">NO 🙈</button>
-</div>
-</div>
-
-<!-- POPUP SLIDESHOW -->
-<div class="modal" id="popup">
-  <div class="modal-content">
-    <img id="slideImg" src="mine1.jpg">
-    <div class="caption" id="caption"></div>
-    <div class="close" id="close">✖ Close</div>
-  </div>
-</div>
-
-<audio id="music" src="love.mp3"></audio>
-
-<script>
-const slides=[
-  {img:"mine1", text:"ur mine 💖"},
-  {img:"mine2", text:"ur my angel 😇"},
-  {img:"mine3", text:"ur my princess 👑"},
-  {img:"mine4", text:"ur my everything 💞<br>Anjali i love you so much<br>much more and ever 🌍💋🫂🧿"}
-];
-
-let index=0, timer;
-
-const yes=document.getElementById("yes");
-const no=document.getElementById("no");
-const popup=document.getElementById("popup");
-const slideImg=document.getElementById("slideImg");
-const caption=document.getElementById("caption");
-const music=document.getElementById("music");
-
-no.onclick=()=>{
-  yes.style.transform="scale(1.3)";
-};
-
-yes.onclick=()=>{
-  popup.style.display="flex";
-  music.play();
-  showSlide();
-  timer=setInterval(showSlide,3000);
-};
-
-function showSlide(){
-  slideImg.src=slides[index].img;
-  caption.innerHTML=slides[index].text;
-  index=(index+1)%slides.length;
-}
-
-document.getElementById("close").onclick=()=>{
-  popup.style.display="none";
-  music.pause();
-  clearInterval(timer);
-};
-
-// floating hearts
-setInterval(()=>{
-  const h=document.createElement("div");
-  h.className="heart";
-  h.innerHTML="💖";
-  h.style.left=Math.random()*100+"vw";
-  h.style.animationDuration=(Math.random()*3+4)+"s";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),7000);
-},300);
 </script>
 
 </body>

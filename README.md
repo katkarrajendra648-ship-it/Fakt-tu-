@@ -87,6 +87,20 @@ button{
   align-items:center;
   flex-direction:column;
   z-index:9999;
+  overflow:hidden;
+}
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  opacity:0.8;
+  animation:twinkle linear infinite;
+}
+@keyframes twinkle{
+  0%,100%{opacity:0.2;}
+  50%{opacity:1;}
 }
 .slide{display:none;}
 .slide img{
@@ -108,7 +122,6 @@ button{
   font-size:30px;
   cursor:pointer;
 }
-/* floating hearts */
 .heart span{
   position:fixed;
   bottom:-20px;
@@ -119,13 +132,38 @@ button{
   from{transform:translateY(0);opacity:1;}
   to{transform:translateY(-110vh);opacity:0;}
 }
+.confetti{
+  position:absolute;
+  width:10px; height:10px;
+  top:0;
+  animation:fall linear forwards;
+  z-index:999;
+}
+@keyframes fall{
+  0%{transform:translateY(0) rotate(0deg);opacity:1;}
+  100%{transform:translateY(100vh) rotate(720deg);opacity:0;}
+}
+.firework{
+  position:absolute;
+  width:6px; height:6px;
+  border-radius:50%;
+  background:hotpink;
+  top:50%;
+  left:50%;
+  animation:explode 1s linear forwards;
+  z-index:9999;
+}
+@keyframes explode{
+  0%{transform:translate(0,0) scale(1);opacity:1;}
+  100%{transform:translate(var(--x),var(--y)) scale(0);opacity:0;}
+}
 </style>
 </head>
 <body>
 
 <div class="container">
 <div id="intro">
-  <h1>Babydoll 💖<br>I have something to tell you…</h1>
+  <h1>Babydoll I have something to say…</h1>
   <button id="goBtn" onclick="startStory()">GO 💫</button>
 </div>
 
@@ -137,7 +175,7 @@ button{
 </div>
 </div>
 
-<!-- Popup -->
+<!-- POPUP -->
 <div class="popup" id="popup">
 <div class="close" onclick="closePopup()">✖</div>
 
@@ -145,22 +183,19 @@ button{
 <img src="mine1">
 <div class="caption">ur mine 💖</div>
 </div>
-
 <div class="slide">
 <img src="mine2">
 <div class="caption">ur my angel 😇</div>
 </div>
-
 <div class="slide">
 <img src="mine3">
 <div class="caption">ur my princess 👑</div>
 </div>
-
 <div class="slide">
 <img src="mine4">
 <div class="caption">
 ur my everything 💞<br>
-Anjali I love you too so much<br>
+Anjali I love you so much<br>
 much more and ever 🌍💋🫂🧿
 </div>
 </div>
@@ -199,12 +234,14 @@ function growYes(){
 let slideIndex=0,slides;
 function openPopup(){
   document.getElementById("popup").style.display="flex";
+  createStars(80);
   slides=document.getElementsByClassName("slide");
   slideIndex=0;
   showSlide();
+  spawnConfetti();
+  spawnFireworks();
   document.getElementById("music").play();
 }
-
 function closePopup(){
   document.getElementById("popup").style.display="none";
   document.getElementById("music").pause();
@@ -217,7 +254,7 @@ function showSlide(){
   setTimeout(showSlide,3000);
 }
 
-/* hearts */
+// Hearts
 setInterval(()=>{
   const h=document.createElement("span");
   h.innerHTML="❤️";
@@ -225,7 +262,48 @@ setInterval(()=>{
   document.body.appendChild(h);
   setTimeout(()=>h.remove(),6000);
 },400);
-</script>
 
+// Stars
+function createStars(num){
+  const popup=document.getElementById("popup");
+  for(let i=0;i<num;i++){
+    const s=document.createElement("div");
+    s.className="star";
+    s.style.top=Math.random()*100+"%";
+    s.style.left=Math.random()*100+"%";
+    s.style.width=(Math.random()*2+1)+"px";
+    s.style.height=s.style.width;
+    s.style.animationDuration=(Math.random()*3+2)+"s";
+    popup.appendChild(s);
+  }
+}
+
+// Confetti
+function spawnConfetti(){
+  for(let i=0;i<50;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.background=['#ff2d75','#ff99ac','#ffd6e0','#fff'][Math.floor(Math.random()*4)];
+    c.style.width=Math.random()*8+4+"px";
+    c.style.height=Math.random()*8+4+"px";
+    c.style.animationDuration=(Math.random()*2+3)+"s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4000);
+  }
+}
+
+// Fireworks
+function spawnFireworks(){
+  for(let i=0;i<30;i++){
+    const f=document.createElement("div");
+    f.className="firework";
+    f.style.setProperty('--x',(Math.random()*400-200)+'px');
+    f.style.setProperty('--y',(Math.random()*400-200)+'px');
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1000);
+  }
+}
+</script>
 </body>
 </html>
